@@ -1,0 +1,36 @@
+name: CI/CD quando PR for aceita e enviada para a branch master
+
+on:
+  pull_request:
+    types:
+      - closed
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v3
+
+      - name: Instalar dependências
+        run: npm install
+
+      - name: Instalar dependências
+        run: dir
+
+      # - name: Publicar artefatos
+      #   run: echo "Publicando artefatos..."
+
+      # Exemplo de notificação de sucesso (opcional)
+      # - name: Enviar notificação
+      #   if: success()
+      #   run: echo "Pipeline CI/CD executado com sucesso!"
+
+      # Exemplo de notificação de falha (opcional)
+      # - name: Enviar notificação de falha
+      #   if: failure()
+      #   run: echo "O pipeline CI/CD falhou."
+
